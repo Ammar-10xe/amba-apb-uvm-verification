@@ -17,6 +17,6 @@ class apb_base_test extends uvm_test;
         // End of elaboration phase
         function void end_of_elaboration_phase(uvm_phase phase);
             super.end_of_elaboration_phase(phase);
-            uvm_root.print_topology();
+            uvm_top.print_topology();
         endfunction
 endclass

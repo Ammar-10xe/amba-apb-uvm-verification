@@ -11,7 +11,6 @@ class apb_driver extends uvm_driver;
         //build phase
         function void build_phase(uvm_phase phase);
                 super.build_phase(phase);
-                set_sequencer(sqr);
         endfunction
 
         //run phase

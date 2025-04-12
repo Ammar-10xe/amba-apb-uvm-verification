@@ -1,5 +1,5 @@
 // Description: APB coverage collector class
-class apb_coverage extends uvm_subscriber#(apb_tx);
+class apb_coverage extends uvm_subscriber#(apb_transaction);
     `uvm_component_utils(apb_coverage)
 
     // Constructor
@@ -19,7 +19,7 @@ class apb_coverage extends uvm_subscriber#(apb_tx);
     endtask
 
     // write method to collect coverage data
-    function void write(apb_tx tx);
+    function void write(apb_transaction tx);
         // Collect coverage data based on the transaction
     endfunction
 
