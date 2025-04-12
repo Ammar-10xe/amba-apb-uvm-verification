@@ -19,7 +19,7 @@ class apb_coverage extends uvm_subscriber#(apb_transaction);
     endtask
 
     // write method to collect coverage data
-    function void write(apb_transaction tx);
+    function void write(apb_transaction t);
         // Collect coverage data based on the transaction
     endfunction
 
