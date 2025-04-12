@@ -1,0 +1,17 @@
+`include "uvm_pkg.sv"
+import uvm_pkg::*;
+
+`include "apb_common.sv"
+`include "apb_intf.sv"
+`include "apb_tx.sv"
+`include "seq_lib.sv"
+`include "apb_sqr.sv"
+`include "apb_drv.sv"
+`include "apb_mon.sv"
+`include "apb_cov.sv"
+`include "apb_rsp.sv"
+`include "apb_agent.sv"
+`include "apb_sbd.sv"
+`include "apb_env.sv"
+`include "test_lib.sv"
+`include "top.sv"
