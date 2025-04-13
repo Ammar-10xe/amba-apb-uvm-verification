@@ -1,5 +1,5 @@
 // Discription: axi Responder
-class axi_responder extends uvm_driver;
+class axi_responder extends uvm_driver#(axi_transaction);
         `uvm_component_utils(axi_responder)
          virtual axi_interface vif;       
         // Constructor
@@ -10,17 +10,13 @@ class axi_responder extends uvm_driver;
         // Build phase
         function void build_phase(uvm_phase phase);
                 super.build_phase(phase);
-          if(!uvm_config_db#(virtual axi_interface)::get(this,"","vif",vif)) begin 
-                        `uvm_error(get_full_name(), "unable to get the virtual interface handle")
-                        
-                end
+                assert(uvm_config_db#(virtual axi_interface)::get(this,"","vif",vif)) 
+                else  `uvm_error(get_full_name(), "unable to get the virtual interface handle")         
         endfunction
         
         // Run phase
         task run_phase(uvm_phase phase);
                 super.run_phase(phase);
-//                     vif=axi_top.pif;
-
         endtask
 
 endclass

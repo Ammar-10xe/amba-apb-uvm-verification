@@ -13,14 +13,13 @@ class axi_monitor extends uvm_monitor;
     // Build phase
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-      if(!uvm_config_db#(virtual axi_interface)::get(this, "", "vif", vif))
-            `uvm_error(get_full_name(), "unable to get the virtual interface handle")
+        assert(uvm_config_db#(virtual axi_interface)::get(this, "", "vif", vif))
+        else `uvm_error(get_full_name(), "unable to get the virtual interface handle")
         ap_port = new("ap_port",this);
     endfunction
 
     // Run phase
     task run_phase(uvm_phase phase);
-//       	vif=axi_top.pif;
         super.run_phase(phase);
         ap_port.write(tx);
     endtask
