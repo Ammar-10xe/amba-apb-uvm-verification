@@ -1,6 +1,7 @@
 module ahb_top;
 
         reg clk,rst;
+        ahb_interface vif(clk,rst);
 
         // clock generation
         initial begin
@@ -12,6 +13,10 @@ module ahb_top;
                 rst = 1;
                 repeat (2) @(posedge clk) rst = 0;
                 rst = 0; 
+        end
+
+        initial begin 
+                uvm_config_db#(virtual ahb_interface)::set(uvm_root::get(),"*","vif",vif);
         end
 
         initial begin 
